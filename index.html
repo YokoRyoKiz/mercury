@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MERCURY - Scroll Animation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p style="margin-top: 1rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.8);">Loading Frames...</p>
+  </div>
+
+  <!-- Background Canvas -->
+  <div id="canvas-container">
+    <canvas id="scroll-canvas"></canvas>
+  </div>
+
+  <!-- スクロールを発生させるためのダミーコンテナ -->
+  <div id="scroll-content"></div>
+
+  <!-- Initial Overlay (最初の画面中央のタイトル) -->
+  <div id="overlay">
+    <h1>MERCURY</h1>
+    <p>The Innermost Planet</p>
+  </div>
+
+  <!-- Information Panels (スクロールで現れるパネル) -->
+  <div id="info-panels">
+    
+    <!-- パネル 1 -->
+    <div class="info-panel">
+      <h2>太陽系最内周の惑星</h2>
+      <div class="fact-grid">
+        <div class="fact-item">
+          <span>Radius</span>
+          2,439 km
+        </div>
+        <div class="fact-item">
+          <span>Distance</span>
+          0.387 AU
+        </div>
+      </div>
+      <p>水星は太陽系で最も内側を公転する、太陽系最小の惑星です。赤道半径は地球の約38%程度であり、地球の月よりもわずかに大きい程度のサイズしかありません。</p>
+    </div>
+
+    <!-- パネル 2 (右寄せ) -->
+    <div class="info-panel right-aligned">
+      <h2>極端な温度環境</h2>
+      <div class="fact-grid">
+        <div class="fact-item">
+          <span>Max Temp</span>
+          430 ℃
+        </div>
+        <div class="fact-item">
+          <span>Min Temp</span>
+          -170 ℃
+        </div>
+      </div>
+      <p>水星には大気がほとんど存在しないため、熱を保持することができません。そのため、強烈な太陽光が当たる昼間と、宇宙空間に熱が逃げる夜間とで、温度差が600度にも達します。</p>
+    </div>
+
+    <!-- パネル 3 -->
+    <div class="info-panel">
+      <h2>特異な軌道と自転</h2>
+      <div class="fact-grid">
+        <div class="fact-item">
+          <span>Orbit</span>
+          87.9 Days
+        </div>
+        <div class="fact-item">
+          <span>Rotation</span>
+          58.6 Days
+        </div>
+      </div>
+      <p>水星の1年は地球の約88日ですが、自転は非常にゆっくりです。太陽の周りを2周（約176日）する間にちょうど3回自転するという「3:2スピン軌道共鳴」の状態で運動しています。</p>
+    </div>
+
+    <!-- パネル 4 (右寄せ) -->
+    <div class="info-panel right-aligned">
+      <h2>巨大な鉄のコア</h2>
+      <div class="fact-grid">
+        <div class="fact-item">
+          <span>Density</span>
+          5.42 g/cm³
+        </div>
+        <div class="fact-item">
+          <span>Core Ratio</span>
+          ~85 %
+        </div>
+      </div>
+      <p>水星はその大きさの割に非常に密度が高く、内部には惑星半径の約85%（体積比で約42%）を占める巨大な鉄の核が存在すると考えられています。地球の核（体積比17%）と比較しても極端に大きな割合です。</p>
+    </div>
+
+    <!-- パネル 5 -->
+    <div class="info-panel">
+      <h2>無数のクレーター</h2>
+      <div class="fact-grid">
+        <div class="fact-item">
+          <span>Surface</span>
+          Silicate Rock
+        </div>
+        <div class="fact-item">
+          <span>Atmosphere</span>
+          Trace
+        </div>
+      </div>
+      <p>大気や液体の水による風化が起こらないことに加え、地質学的な活動も過去に停止しているため、水星の表面には数十億年前の隕石衝突による無数のクレーターが現在もそのままの姿で残されています。</p>
+      
+      <!-- 参考文献をここに追加して真面目さを強調 -->
+      <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.2);">
+        <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 0.3rem;">【参考文献・出典】</p>
+        <p style="font-size: 0.8rem; color: #888; line-height: 1.4;">
+          - Wikipedia 日本語版「水星」<br>
+          - 国立天文台(NAOJ) 水星に関する基礎データ<br>
+          - NASA Mercury Fact Sheet
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="final-message" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 8vw; font-weight: 900; letter-spacing: 0.1em; color: #fff; text-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 20px rgba(255,255,255,0.4); z-index: 50; opacity: 0; pointer-events: none; white-space: nowrap; transition: opacity 0.1s ease-out, transform 0.1s ease-out;">
+    単位ください
+  </div>
+
+  <script src="frames_info.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
